@@ -1,0 +1,30 @@
+.footer{
+    background-color: aquamarine;
+}
+
+.footer-list{
+    display: flex;
+    /* border: 2px solid rgb(255, 0, 157); */
+    justify-content: space-around;
+    
+}
+
+.footer-item{
+    display: flex;
+    padding : 20px;
+    /* border : 2px solid red; */
+
+}
+
+.footer-link {
+    /* border : 2px solid greenyellow; */
+    /* color : rgb(94, 255, 0); */
+    font-size:large;
+    text-decoration: none;
+
+}
+
+.footer-sentence {
+    font-size:large;
+    padding-bottom : 10px;
+}
