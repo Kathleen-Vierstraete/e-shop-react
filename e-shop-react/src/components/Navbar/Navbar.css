@@ -1,0 +1,28 @@
+.nav{
+display : flex;
+/* border : 1px solid rgb(119, 128, 0); */
+justify-content:flex-end;
+width : 50%
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    /* border : 1px solid green; */
+
+}
+
+.item{
+    position: relative;
+    list-style : none;
+    padding : 20px;
+    /* border : 2px solid red; */
+    display : inline; 
+    align-self: flex-end;
+}
+
+.link {
+    color : blue;
+    font-size:large;
+    text-decoration: none;
+}
