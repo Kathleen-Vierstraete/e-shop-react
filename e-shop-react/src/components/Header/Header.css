@@ -1,0 +1,20 @@
+
+
+.header {
+    display : flex;
+    background-color : blueviolet;
+   position : relative;
+}
+
+.logo-image {
+    position : relative;
+    margin : 25px 25px;
+    border: 2px solid #000000;
+}
+
+
+.p-header {
+    color :rgb(62, 13, 177);
+    font-size: xx-large;
+    margin-top : 75px;
+}
