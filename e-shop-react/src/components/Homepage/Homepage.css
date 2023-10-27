@@ -1,0 +1,42 @@
+.cards{
+    /* border : 2px solid greenyellow; */
+    display : flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.product-card{
+    border : 1px black solid;
+    box-shadow: 5px 5px lightblue;
+    flex-wrap: wrap;
+    width : 320px;
+    height : 420px;
+    margin : 20px
+}
+
+.product-image {
+    padding-top: 10px;
+    width : 200px;
+    height: 200px;
+}
+
+.product-title{
+    font-size: 1.5rem;
+}
+
+.product-description{
+    font-style: italic;
+    color : grey;
+}
+
+.product-add-div {
+    display : flex;
+    justify-content: flex-end;
+
+}
+
+.product-add-button {
+    margin-right: 50px;
+    padding : 5px ;
+    background-color: rgb(158, 158, 158);
+}
