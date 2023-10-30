@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react' //importing the useState to hook on the page and useEffect to fetch the products
 import './Homepage.css';
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 
 export default class Hompeage extends React.Component {
 
@@ -21,7 +23,9 @@ export default class Hompeage extends React.Component {
        
         <div className='cards'>
         {this.state.products.map(product =>  
+
             <div key={product.id} className='product-card'>
+              <Link to={`/product/${product.id}`} className='product-link'>
               <img src={product.image} alt={product.title} className='product-image'  />
               <div className='product-info'>
                 <h1 className='product-title'>{product.title.slice(0, 27)}</h1>
@@ -31,6 +35,7 @@ export default class Hompeage extends React.Component {
               <div className='product-add-div'>
                 <button className='product-add-button'>Add to cart</button>
               </div>
+              </Link>
             </div>
           )
         }
