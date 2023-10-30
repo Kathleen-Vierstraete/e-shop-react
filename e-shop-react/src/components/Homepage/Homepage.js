@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 
 
-export default class Hompeage extends React.Component {
+export default class Homepage extends React.Component {
 
   state =  {
     products : []
@@ -13,7 +13,7 @@ export default class Hompeage extends React.Component {
   componentDidMount() {
     axios.get('https://fakestoreapi.com/products')
       .then(result => {
-        console.log(result)
+        // console.log(result)
         this.setState({ products : result.data})
       });
   }
