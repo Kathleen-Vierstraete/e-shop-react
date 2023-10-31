@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react' //importing the useState to hook on the page and useEffect to fetch the products
+import React, { useState, useEffect, useContext } from 'react' //importing the useState to hook on the page and useEffect to fetch the products
 import './Homepage.css';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/cart'
+import Cart from './../Cart/Cart'
 
 const Homepage = () => {
 
@@ -28,29 +30,52 @@ useEffect(() => {
   getProducts();
 }, []);
 
+//to handle the cart in general
+const { cartItems, addToCart } = useContext(CartContext)
 
+//to display the modal
+const [showModal, setShowModal] = useState(false)
+
+const toggle = () => {
+  setShowModal(!showModal)
+}
 
       return (
-       
+
+          <div className='flex justify-between items-center px-20 py-5'>
+            <h1 className='text-2xl uppercase font-bold mt-10 text-center mb-10'>Let's enjoy shopping !!</h1>
+            {!showModal && <button className='px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'
+              onClick={toggle}
+            >Cart ({cartItems.length})</button>}
+
+
+
         <div className='cards'>
         {products.map(product =>  
 
             <div key={product.id} className='product-card'>
-              <Link to={`/product/${product.id}`} className='product-link'>
-              <img src={product.image} alt={product.title} className='product-image'  />
+              <div className='link-card'>
+                <Link to={`/product/${product.id}`} className='product-link'>
+                <img src={product.image} alt={product.title} className='product-image'  />
 
-              <div className='product-info'>
-                <h1 className='product-title'>{product.title.slice(0, 27)}</h1>
-                <p className='product-description'>{product.description.slice(0, 35)}...</p>
-                <p className='product-price'>${product.price}</p>
+                <div className='product-info'>
+                
+                  <h1 className='product-title'>{product.title.slice(0, 27)}</h1>
+                  <p className='product-description'>{product.description.slice(0, 35)}...</p>
+                  <p className='product-price'>${product.price}</p>
+                  
+                </div>
+                </Link>
               </div>
               <div className='product-add-div'>
-                <button className='product-add-button'>Add to cart</button>
+                <button onClick={() => addToCart(product)}  className='product-add-button'>Add to cart</button>
               </div>
-              </Link>
+              
             </div>
           )
         }
+      </div>
+      <Cart showModal={showModal} toggle={toggle} />
       </div>
     )
       }
@@ -58,6 +83,8 @@ export default Homepage;
 
 
 
+// <Link to={`/product/${product.id}`} className='product-link'>
+//</Link>
 //function Homepage() {
 
     // const [products, setProducts] = useState([]) //declaring a const to initialize the state
