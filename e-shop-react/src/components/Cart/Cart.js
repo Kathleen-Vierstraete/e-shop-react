@@ -18,7 +18,7 @@ const Cart = ({showModal, toggle}) => {
             {cartItems.map((item) => (
                 <div className="flex justify-between items-center" key={item.id}>
                     <div className="flex gap-4">
-                        <img src={item.thumbnail} alt={item.title} className="rounded-md h-24" />
+                        <img src={item.image} alt={item.title} className="rounded-md h-24" />
                         <div className="flex flex-col">
                             <h1 className="text-lg font-bold">{item.title}</h1>
                             <p className="text-gray-600">{item.price}</p>
