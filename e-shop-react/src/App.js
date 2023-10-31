@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Homepage from './components/Homepage/Homepage';
 import SingleProduct from './components/SingleProduct/SingleProduct';
+import { CartProvider } from './context/cart.jsx'
 
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -12,15 +13,18 @@ function App() {
   return (
     
     <div className="App">
-      <Router>
-        <Header /> 
-          <Routes>
+      <CartProvider>
+        <Router>
+          <Header /> 
+            <Routes>
 
-            <Route path="/" element={<Homepage />} />
-            <Route path="/product/:id" element={<SingleProduct />} />
-          </Routes>
-        <Footer />
-      </Router>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/product/:id" element={<SingleProduct />} />
+
+            </Routes>
+          <Footer />
+        </Router>
+      </CartProvider>
     </div>
   );
 }

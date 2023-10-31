@@ -3,30 +3,42 @@ import './Homepage.css';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
+const Homepage = () => {
 
-export default class Homepage extends React.Component {
+//   const [products, setProducts] = useState([]); 
 
-  state =  {
-    products : []
-  }
+//   useEffect(() => {
+//     axios.get("https://fakestoreapi.com/products")
+//     .then(result => 
+//     // console.log(result.data)
+//     setProducts({products : result.data})
+//     )
+//   },
+//   console.log(products)
+// ,  []);
 
-  componentDidMount() {
-    axios.get('https://fakestoreapi.com/products')
-      .then(result => {
-        // console.log(result)
-        this.setState({ products : result.data})
-      });
-  }
+const [products, setProducts] = useState([]); 
 
-  render() {
+const getProducts = async () => {
+  const { data } = await axios.get("https://fakestoreapi.com/products");
+  setProducts(data);
+};
+
+useEffect(() => {
+  getProducts();
+}, []);
+
+
+
       return (
        
         <div className='cards'>
-        {this.state.products.map(product =>  
+        {products.map(product =>  
 
             <div key={product.id} className='product-card'>
               <Link to={`/product/${product.id}`} className='product-link'>
               <img src={product.image} alt={product.title} className='product-image'  />
+
               <div className='product-info'>
                 <h1 className='product-title'>{product.title.slice(0, 27)}</h1>
                 <p className='product-description'>{product.description.slice(0, 35)}...</p>
@@ -42,7 +54,7 @@ export default class Homepage extends React.Component {
       </div>
     )
       }
-}
+export default Homepage;
 
 
 

@@ -34,8 +34,7 @@ function SingleProduct() {
                     <h1 className='product-title'>{products.title}</h1>
                     <p className='product-description'>{products.description}</p>
                     <p className='product-price'>${products.price}</p>
-                    {/* <p className='product-rating'>product rating : {products.rating.rate}/5</p> */} 
-                    {/* returning an error for rate when it previously didn't, to do : check later */}
+
                 </div>
                     <div className='product-add-div'>
                         <button className='product-add-button'>Add to cart</button>
@@ -49,3 +48,6 @@ function SingleProduct() {
     }
 
 export default SingleProduct;
+
+                    /* <p className='product-rating'>product rating : {products.rating.rate}/5</p> */
+                    /* returning an error for rate when it previously didn't, to do : check later */
