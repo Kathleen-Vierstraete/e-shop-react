@@ -7,28 +7,25 @@ import Cart from './../Cart/Cart'
 
 const Homepage = () => {
 
-//   const [products, setProducts] = useState([]); 
+  const [products, setProducts] = useState([]);
+  
+  const [loading, setLoading] = useState(true);
 
-//   useEffect(() => {
-//     axios.get("https://fakestoreapi.com/products")
-//     .then(result => 
-//     // console.log(result.data)
-//     setProducts({products : result.data})
-//     )
-//   },
-//   console.log(products)
-// ,  []);
+  useEffect(() => {
+    axios.get("https://fakestoreapi.com/products")
+    .then((result) => {
+  
+    setProducts(result.data)
+    setLoading(false)
+  })
+  .catch((error)=>{
+    console.log(error)
+  }
+  )  
+  },
+  []);
 
-const [products, setProducts] = useState([]); 
 
-const getProducts = async () => {
-  const { data } = await axios.get("https://fakestoreapi.com/products");
-  setProducts(data);
-};
-
-useEffect(() => {
-  getProducts();
-}, []);
 
 //to handle the cart in general
 const { cartItems, addToCart } = useContext(CartContext)
@@ -48,10 +45,12 @@ const toggle = () => {
               onClick={toggle}
             >Cart ({cartItems.length})</button>}
 
-
-
         <div className='cards'>
-        {products.map(product =>  
+          { loading ? <h1> loading ....</h1>  : 
+        
+        products.map((product)  =>  {
+
+          return (
 
             <div key={product.id} className='product-card'>
               <div className='link-card'>
@@ -73,11 +72,18 @@ const toggle = () => {
               
             </div>
           )
+
+          }
+        )
         }
+      
       </div>
+      
+      
       <Cart showModal={showModal} toggle={toggle} />
       </div>
-    )
+      )
+
       }
 export default Homepage;
 
