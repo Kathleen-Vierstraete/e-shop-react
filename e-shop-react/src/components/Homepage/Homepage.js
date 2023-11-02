@@ -28,7 +28,7 @@ const Homepage = () => {
 
 
 //to handle the cart in general
-const { cartItems, addToCart } = useContext(CartContext)
+const { cartItems, addToCart, removeFromCart } = useContext(CartContext)
 
 //to display the modal
 const [showModal, setShowModal] = useState(false)
@@ -36,6 +36,10 @@ const [showModal, setShowModal] = useState(false)
 const toggle = () => {
   setShowModal(!showModal)
 }
+
+const handleRemoveFromCart = (product) => {
+  removeFromCart(product);
+};
 
       return (
         
@@ -71,11 +75,49 @@ const toggle = () => {
                 </div>
                 </Link>
               </div>
-              <div className='mt-6 flex justify-between items-right'>
-                <button onClick={() => addToCart(product)}  
-                className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'>Add to cart</button>
+              <div className='mt-6 flex justify-center items-center '>
+                <div className='inter-div'> 
+            {
+              !cartItems.find(item => item.id === product.id) ? (
+                <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'
+                  onClick={() => {
+                    addToCart(product)
+                  }
+                  }
+                  >
+                    Add to cart
+                  </button>
+              ) : (
+                <div className="flex gap-4">
+                  <button
+                  className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
+                  onClick={() => {
+                    const cartItem = cartItems.find((item) => item.id === product.id);
+                    if (cartItem.quantity === 1) {
+                      handleRemoveFromCart(product);
+                    } else {
+                      removeFromCart(product);
+                    }
+                  }}
+                >
+                  -
+                </button>
+
+                <p className='text-gray-600'>{cartItems.find(item => item.id === product.id).quantity}</p>
+
+                   <button
+                  className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
+                  onClick={() => {
+                    addToCart(product)
+                  }}
+                >
+                  +
+                </button>
               </div>
-              
+              )
+            }
+          </div>
+          </div>
             </div>
           )
 
