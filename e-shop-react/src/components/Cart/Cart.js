@@ -33,17 +33,7 @@ const Cart = ({showModal, toggle}) => {
                     </div>
 
                 <div className="flex gap-4">
-                    <button
-                        className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
-                        onClick={() => {
-                        addToCart(item)
-                        }}
-                    >
-                        +
-                    </button>
-
-                <p>{item.quantity}</p>
-
+   
                     <button
                         className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
                         onClick={() => {
@@ -52,6 +42,17 @@ const Cart = ({showModal, toggle}) => {
                     >
                         -
                     </button>
+                <p>{item.quantity}</p>
+
+                    <button
+                            className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
+                            onClick={() => {
+                            addToCart(item)
+                            }}
+                        >
+                        +
+                    </button>
+                    
                 </div>
                 </div>
             )

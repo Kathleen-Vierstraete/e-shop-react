@@ -1,8 +1,10 @@
 
-import React,{useEffect, useState} from 'react';
+import React,{useEffect, useState, useContext} from 'react';
 import { useParams } from 'react-router-dom';
 import './SingleProduct.css';
 import  axios  from 'axios';
+import { CartContext } from '../../context/cart';
+import Cart from './../Cart/Cart';
 
 function SingleProduct() {
 
@@ -24,8 +26,29 @@ function SingleProduct() {
             })
         }, [params.id])
 
+        //to handle the cart in general
+        const { cartItems, addToCart } = useContext(CartContext)
+
+        //to display the modal
+        const [showModal, setShowModal] = useState(false)
+
+        const toggle = () => {
+        setShowModal(!showModal)
+}
+
+
         //returning the html with the info that is to display
     return (
+
+        <div className='flex flex-col justify-center bg-stone-200 '>
+
+        <div className='flex justify-between items-center px-20 py-5'>
+          <h1 className='text-2xl uppercase font-bold mt-10 text-center mb-10'>Let's enjoy shopping</h1>
+
+          {!showModal && <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'
+            onClick={toggle}
+          >Cart ({cartItems.length})</button>}
+        </div>
             <div className='container px-5 py-24 mx-auto'>
                 <div key={products.id} className='lg:w-4/5 mx-auto flex flex-wrap justify-center'>
                 
@@ -35,12 +58,14 @@ function SingleProduct() {
                         <p className='mt-2 text-gray-600 text-sm pb-5'>{products.description}</p>
                         <p className='mt-2 text-gray-600 pb-5'>${products.price}</p>
 
-                        <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'>Add to cart</button>
+                        <button onClick={() => addToCart(products)} className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'>Add to cart</button>
 
                     </div>
                 
                 </div>
             </div>
+            <Cart showModal={showModal} toggle={toggle} />
+        </div>
  
 
     )
