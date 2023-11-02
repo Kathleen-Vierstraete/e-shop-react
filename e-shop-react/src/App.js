@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Homepage from './components/Homepage/Homepage';
 import SingleProduct from './components/SingleProduct/SingleProduct';
+import Signup from './components/SignUp/SignUp';
 import { CartProvider } from './context/cart.jsx'
 
 
@@ -20,6 +21,8 @@ function App() {
 
               <Route path="/" element={<Homepage />} />
               <Route path="/product/:id" element={<SingleProduct />} />
+              <Route path="/signup" element={<Signup />} />
+
 
             </Routes>
           <Footer />
