@@ -40,16 +40,17 @@ const toggle = () => {
       return (
         
 
-        <div className='flex flex-col justify-center bg-stone-100'>
+        <div className='flex flex-col justify-center bg-stone-200 '>
 
         <div className='flex justify-between items-center px-20 py-5'>
           <h1 className='text-2xl uppercase font-bold mt-10 text-center mb-10'>Let's enjoy shopping</h1>
-          {!showModal && <button className='px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'
+
+          {!showModal && <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'
             onClick={toggle}
           >Cart ({cartItems.length})</button>}
         </div>
 
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-10 place-items-center'>
+        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-10 place-items-center space-x-4 pb-10 '>
           { loading ? <h1> loading ....</h1>  : 
         
         products.map((product)  =>  {
@@ -58,13 +59,13 @@ const toggle = () => {
 
             <div key={product.id} className='bg-white shadow-md rounded-lg px-10 py-10'>
               <div className='link-card'>
-                <Link to={`/product/${product.id}`} className='product-link'>
-                <img src={product.image} alt={product.title} className='rounded-md h-48'  />
+                <Link to={`/product/${product.id}`} className=''>
+                <img src={product.image} alt={product.title} className='rounded-md h-48 w-48'  />
 
                 <div className='mt-4'>
                 
-                  <h1 className='text-lg uppercase font-bold'>{product.title.slice(0, 27)}</h1>
-                  <p className='mt-2 text-gray-600 text-sm'>{product.description.slice(0, 35)}...</p>
+                  <h1 className='text-lg uppercase font-bold'>{product.title.slice(0, 20)}</h1>
+                  <p className='mt-2 text-gray-600 text-sm'>{product.description.slice(0, 25)}...</p>
                   <p className='mt-2 text-gray-600'>${product.price}</p>
                   
                 </div>
@@ -72,7 +73,7 @@ const toggle = () => {
               </div>
               <div className='mt-6 flex justify-between items-right'>
                 <button onClick={() => addToCart(product)}  
-                className='px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'>Add to cart</button>
+                className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'>Add to cart</button>
               </div>
               
             </div>

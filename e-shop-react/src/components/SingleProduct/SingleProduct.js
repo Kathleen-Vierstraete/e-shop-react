@@ -26,22 +26,21 @@ function SingleProduct() {
 
         //returning the html with the info that is to display
     return (
-            <div className='single-card'>
-                <div key={products.id} className='single-product-card'>
+            <div className='container px-5 py-24 mx-auto'>
+                <div key={products.id} className='lg:w-4/5 mx-auto flex flex-wrap justify-center'>
                 
-                <img src={products.image} alt={products.title} className='product-image'  />
-                <div className='product-info'>
-                    <h1 className='product-title'>{products.title}</h1>
-                    <p className='product-description'>{products.description}</p>
-                    <p className='product-price'>${products.price}</p>
+                    <img src={products.image} alt={products.title} className='rounded-md h-48'  />
+                    <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
+                        <h1 className='text-lg uppercase font-bold'>{products.title}</h1>
+                        <p className='mt-2 text-gray-600 text-sm pb-5'>{products.description}</p>
+                        <p className='mt-2 text-gray-600 pb-5'>${products.price}</p>
 
-                </div>
-                    <div className='product-add-div'>
-                        <button className='product-add-button'>Add to cart</button>
+                        <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'>Add to cart</button>
+
                     </div>
                 
                 </div>
-                </div>
+            </div>
  
 
     )
