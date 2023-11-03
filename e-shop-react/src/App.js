@@ -5,11 +5,12 @@ import Header from './components/Header/Header';
 import Homepage from './components/Homepage/Homepage';
 import SingleProduct from './components/SingleProduct/SingleProduct';
 import Signup from './components/SignUp/SignUp';
-import Login from './components/SignUp//Login'
+import Login from './components/SignUp//Login';
 import { CartProvider } from './context/cart.jsx'
 
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
