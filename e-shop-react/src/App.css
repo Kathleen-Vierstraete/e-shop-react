@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+/* error class from the TextField.js */
+.error {
+  color : red;
+  font-size:.6rem;
+}
