@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Formik, Form} from 'formik'; 
 import  TextField  from './TextField'
 import * as Yup from 'yup';
+
 
 
 const SignUp = () => {
@@ -17,12 +18,17 @@ const SignUp = () => {
                     .email("Invalid email")
                     .required("Required"),
         password: Yup.string()
-                    .min(6, "Password must be at least 6 characters")
+                    .min(8, "Password must be at least 8 characters")
+                    .matches(/[0-9]/, "Password must have one digit")
+                    .matches(/[a-z]/, "Password must have one lowercase character")
+                    .matches(/[A-Z]/, "Password must have one uppercase character")
                     .required("Required"),
         confirmPassword: Yup.string()
                     .oneOf([Yup.ref('password'), undefined], "Passwords must match")
                     .required("Required"),
     })
+
+  
 
 return (
 
@@ -53,7 +59,7 @@ return (
                             <TextField  label="LastName" name="lastName" type="text"/>
                             <TextField  label="Email" name="email" type="email"/>
                             <TextField  label="Password" name="password" type="password"/>
-                            <TextField  label="confirmPassword" name="confirmPassword" type="password"/>
+                            <TextField  label="Confirm Password" name="confirmPassword" type="password"/>
 
                             <button className='px-4 py-2 bg-green-400 text-white text-xs font-bold uppercase rounded hover:bg-green-700 focus:outline-none focus:bg-green-700' type='submit'>Sign in</button>
                         </Form>
@@ -70,3 +76,4 @@ return (
 }
 
 export default SignUp;
+
