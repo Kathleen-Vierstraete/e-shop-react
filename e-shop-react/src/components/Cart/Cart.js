@@ -28,11 +28,11 @@ const Cart = ({showModal, toggle}) => {
                         <img src={item.image} alt={item.title} className="rounded-md sm:w-24 sm:h-24 w-14 h-14" />
                         <div className="flex gap-8 justify-center">
                             <h1 className="sm:text-lg font-bold">{item.title.slice(0, 20)}</h1>
-                            <p className="text-gray-600">${item.price}</p>
+                            <p className="text-gray-600 ms:m-1">$ {item.price}</p>
                         </div>
                     </div>
 
-                <div className="flex gap-4">
+                <div className="flex gap-4 mt-4">
    
                     <button
                         className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
@@ -65,7 +65,7 @@ const Cart = ({showModal, toggle}) => {
         <div className="flex flex-col justify-between items-center">
             <h1 className="text-lg font-bold">Total: ${getCartTotal()}</h1>
                 <button
-                className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
+                className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 mt-4"
                 onClick={() => {
                     clearCart()
                 }}

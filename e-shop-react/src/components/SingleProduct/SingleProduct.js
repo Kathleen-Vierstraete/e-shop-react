@@ -60,7 +60,7 @@ const handleRemoveFromCart = (product) => {
                     <div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
                         <h1 className='text-lg uppercase font-bold'>{product.title}</h1>
                         <p className='mt-2 text-gray-600 text-sm pb-5'>{product.description}</p>
-                        <p className='mt-2 text-gray-600 pb-5'>${product.price}</p>
+                        <p className='mt-2 text-gray-600 pb-5'>$ {product.price}</p>
 
                         <div className='mt-6 flex justify-center items-center '>
                 <div className='inter-div'> 

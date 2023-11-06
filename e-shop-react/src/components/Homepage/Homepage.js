@@ -70,7 +70,7 @@ const handleRemoveFromCart = (product) => {
                 
                   <h1 className='text-lg uppercase font-bold'>{product.title.slice(0, 20)}</h1>
                   <p className='mt-2 text-gray-600 text-sm'>{product.description.slice(0, 25)}...</p>
-                  <p className='mt-2 text-gray-600'>${product.price}</p>
+                  <p className='mt-2 text-gray-600'>$ {product.price}</p>
                   
                 </div>
                 </Link>

@@ -49,8 +49,8 @@ return (
         >
             {formik => 
         <div className='flex justify-center' >
-            <div className='flex flex-col bg-stone-200 items-center pb-5 pt-5 mb-10 w-1/2  '>
-                <div className="w-full max-w-xs ">
+            <div className='flex flex-col bg-stone-200 items-center pb-5 pt-5 mb-10 w-2/3  '>
+                <div className="w-2/3 max-w-xs">
                     <h1 className='text-lg uppercase font-bold pb-5' >Sign up</h1>
                     {/* {console.log(formik.values)} */}
 
