@@ -69,7 +69,7 @@ const Cart = () => {
         <div className="flex flex-col justify-between items-center">
             <h1 className="text-lg font-bold">Total: ${getCartTotal()}</h1>
                 <button
-                className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 mt-4"
+                className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 mt-4"
                 onClick={() => {
                     clearCart()
                 }}
@@ -84,8 +84,8 @@ const Cart = () => {
 
             <div> 
                 <Link to="/cart-validation" className=''>
-                    <button className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 mt-4">
-                    validate                
+                    <button className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 mt-4">
+                    Checkout                
                     </button>
                 </Link >            
             </div>

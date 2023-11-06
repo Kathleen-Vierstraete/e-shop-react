@@ -27,19 +27,13 @@ const Homepage = () => {
 
 
 
-//to handle the cart in general
-const { cartItems, addToCart, removeFromCart } = useContext(CartContext)
+  //to handle the cart in general
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext)
 
-//to display the modal
-const [showModal, setShowModal] = useState(false)
 
-const toggle = () => {
-  setShowModal(!showModal)
-}
-
-const handleRemoveFromCart = (product) => {
-  removeFromCart(product);
-};
+  const handleRemoveFromCart = (product) => {
+    removeFromCart(product);
+  };
 
       return (
         

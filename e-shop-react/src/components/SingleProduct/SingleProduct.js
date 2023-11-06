@@ -5,6 +5,7 @@ import './SingleProduct.css';
 import  axios  from 'axios';
 import { CartContext } from '../../context/cart';
 import Cart from './../Cart/Cart';
+import { Link } from 'react-router-dom';
 
 function SingleProduct() {
 
@@ -29,30 +30,26 @@ function SingleProduct() {
         //to handle the cart in general
         const { cartItems, addToCart, removeFromCart } = useContext(CartContext)
 
-        //to display the modal
-        const [showModal, setShowModal] = useState(false)
 
-        const toggle = () => {
-        setShowModal(!showModal)
-}
-
-const handleRemoveFromCart = (product) => {
-    removeFromCart(product);
-  };
+        const handleRemoveFromCart = (product) => {
+            removeFromCart(product);
+          };
 
 
         //returning the html with the info that is to display
     return (
 
-        <div className='flex flex-col justify-center bg-stone-200 '>
+      <div className='flex flex-col justify-center bg-stone-200 '>
 
-        <div className='flex justify-between items-center px-20 py-5'>
-          <h1 className='text-2xl uppercase font-bold mt-10 text-center mb-10'>Let's enjoy shopping</h1>
+      <div className='flex justify-between items-center px-20 py-5'>
+        <h1 className='text-2xl uppercase font-bold mt-10 text-center mb-10'>Let's enjoy shopping</h1>
 
-          {!showModal && <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'
-            onClick={toggle}
-          >Cart ({cartItems.length})</button>}
-        </div>
+        <Link to="/cart" className=''>
+        <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'
+          
+        >Cart ({cartItems.length})</button>
+        </Link > 
+      </div>
             <div className='container px-5 py-24 mx-auto'>
                 <div key={product.id} className='lg:w-4/5 mx-auto flex flex-wrap justify-center'>
                 
@@ -110,7 +107,7 @@ const handleRemoveFromCart = (product) => {
                 
                 </div>
             </div>
-            <Cart showModal={showModal} toggle={toggle} />
+
         </div>
  
 
