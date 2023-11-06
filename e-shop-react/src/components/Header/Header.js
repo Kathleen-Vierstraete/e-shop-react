@@ -10,7 +10,7 @@ function Header() {
     return (
   
             <header className='bg-violet-400 text-white shadow-lg'>
-                <div class="container mx-auto flex items-center h-44">
+                <div className="container mx-auto flex items-center h-44">
                     <Link to='/'>
                         <img src={eshopLogo} alt="eshop-logo" className="logo-image ml-2.5" />
                     </Link>
