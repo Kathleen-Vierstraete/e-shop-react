@@ -11,26 +11,25 @@ const Cart = () => {
 
     return (
 
-        <div className="flex-col flex items-center sm:left-1/4 bg-white dark:bg-black gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm ">
-            <h1 className=" sm:text-2xl font-bold">Cart</h1>
-            <div className="absolute right-16 top-10">
-
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                <h1 class="text-2xl font-bold my-4">Your shopping Cart</h1>
             </div>
 
-            <div className="grid sm:grid-cols-1 gap-4 px-10 place-items-center space-x-4 pb-10">
+      
+            <div class="mt-8 my-3">
             {cartItems.map((item) => (
-                <div className="flex justify-between items-center pb-10" key={item.id}>
-                    <div className="flex gap-4">
+                <>
+                <div className="flex flex-col md:flex-row border-b border-gray-400 py-4" key={item.id}>
+                    <div className="flex-shrink-0">
                         <img src={item.image} alt={item.title} className="rounded-md sm:w-24 sm:h-24 w-14 h-14" />
-                        <div className="flex gap-8 justify-center pb-10">
-                            <h1 className="sm:text-lg font-bold">{item.title.slice(0, 20)}</h1>
-                            <p className="text-gray-600 ms:m-1">$ {item.price}</p>
-                        </div>
                     </div>
-
-                <div className="flex gap-4 mt-4">
-   
-                    <button
+                    <div className="mt-4 md:mt-0 md:ml-6">
+                        <h2 class="text-lg font-bold">{item.title.slice(0,20)}</h2>
+                        <div class="mt-4 flex items-center">
+                            <span class="mr-2 text-gray-600">Quantity: </span>
+                            <div class="flex items-center">
+                            <button
                         className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
                         onClick={() => {
                         removeFromCart(item)
@@ -38,8 +37,7 @@ const Cart = () => {
                     >
                         -
                     </button>
-                <p>{item.quantity}</p>
-
+                    <span class="mx-2 text-gray-600">{item.quantity}</span>
                     <button
                             className="px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700"
                             onClick={() => {
@@ -48,13 +46,23 @@ const Cart = () => {
                         >
                         +
                     </button>
+                    </div>
+                    <span class="ml-2 font-bold">$ {item.price}</span>
+
+                        </div>
+                    </div>
                     
                 </div>
-                </div>
+                </>
+          
             )
         )
+    
     }
   </div>
+
+
+
 
   {
     cartItems.length > 0 ? (
@@ -81,7 +89,8 @@ const Cart = () => {
                     </button>
                 </Link >            
             </div>
-        </div>                
+        </div>  
+             
                             
                             
             
