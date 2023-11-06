@@ -49,9 +49,11 @@ const handleRemoveFromCart = (product) => {
         <div className='flex justify-between items-center px-20 py-5'>
           <h1 className='text-2xl uppercase font-bold mt-10 text-center mb-10'>Let's enjoy shopping</h1>
 
-          {!showModal && <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'
-            onClick={toggle}
-          >Cart ({cartItems.length})</button>}
+          <Link to="/cart" className=''>
+          <button className='px-4 py-2 bg-indigo-800 text-white text-xs font-bold uppercase rounded hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700'
+            
+          >Cart ({cartItems.length})</button>
+          </Link > 
         </div>
 
         <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-10 place-items-center space-x-4 pb-10 '>
@@ -127,7 +129,7 @@ const handleRemoveFromCart = (product) => {
       
       </div>
       
-      <Cart showModal={showModal} toggle={toggle} />
+
       </div>
       )
 

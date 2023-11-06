@@ -5,11 +5,14 @@ import Header from './components/Header/Header';
 import Homepage from './components/Homepage/Homepage';
 import SingleProduct from './components/SingleProduct/SingleProduct';
 import Signup from './components/SignUp/SignUp';
-import Login from './components/SignUp//Login';
+import Login from './components/SignUp/Login';
+import Cart from './components/Cart/Cart.js';
+import CartValidate from './components/CartValidate/CartValidate';
 import { CartProvider } from './context/cart.jsx'
 
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 
 function App() {
@@ -25,6 +28,8 @@ function App() {
               <Route path="/product/:id" element={<SingleProduct />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/cart-validation" element={<CartValidate />} />
 
             </Routes>
           <Footer />
